@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aldo Florez | Portafolio</title>
+
+  <!-- TailwindCDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS.js -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- Iconos -->
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+
+    /* WhatsApp botón flotante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      padding: 16px;
+      font-size: 24px;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Hero con Typed -->
+  <header class="min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-blue-700 to-indigo-800 text-white p-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">¡Hola! Soy Aldo Florez</h1>
+    <span id="typed-text" class="text-xl"></span>
+    <a href="#proyectos" class="mt-6 px-6 py-3 bg-green-500 rounded-full hover:bg-green-600 transition">Ver proyectos</a>
+  </header>
+
+  <!-- Servicios -->
+  <section class="py-12 px-6 bg-white text-center" id="servicios">
+    <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Servicios</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="bg-gray-100 p-6 rounded shadow" data-aos="zoom-in">Páginas web con WhatsApp</div>
+      <div class="bg-gray-100 p-6 rounded shadow" data-aos="zoom-in" data-aos-delay="100">Tiendas virtuales básicas</div>
+      <div class="bg-gray-100 p-6 rounded shadow" data-aos="zoom-in" data-aos-delay="200">Instalación de cámaras inteligentes</div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section class="py-12 px-6 bg-gray-50 text-center" id="proyectos">
+    <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Proyectos</h2>
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div class="bg-white p-4 rounded shadow-lg hover:scale-105 transition" data-aos="fade-right">
+        <img src="assets/img/moda-nativa.jpg" class="rounded mb-3" alt="Moda Nativa" />
+        <h3 class="font-bold text-xl">Moda Nativa</h3>
+        <p>Tienda ficticia con productos e integración a WhatsApp.</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow-lg hover:scale-105 transition" data-aos="fade-left">
+        <img src="assets/img/sabor-llanero.jpg" class="rounded mb-3" alt="Sabor Llanero" />
+        <h3 class="font-bold text-xl">Sabor Llanero</h3>
+        <p>Restaurante local con menú dinámico y pedidos directos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="py-12 px-6 bg-white text-center" id="contacto">
+    <h2 class="text-2xl font-bold mb-6" data-aos="fade-up">¿Quieres trabajar conmigo?</h2>
+    <a href="https://wa.me/57300XXXXXXX?text=Hola%20Aldo,%20quiero%20una%20página%20web"
+       target="_blank"
+       class="inline-block px-6 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+       data-aos="zoom-in">
+      Escríbeme por WhatsApp
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm p-6 bg-gray-200 text-gray-600">
+    © 2025 Aldo Florez — Hecho en Cúcuta
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/573232041158?text=Hola%20Aldo,%20quiero%20una%20página%20web"
+     class="whatsapp-float" target="_blank">
+    <i class="ti ti-brand-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Typed.js
+    var typed = new Typed("#typed-text", {
+      strings: ["Desarrollador Web", "Integrador IoT", "Creador de soluciones inteligentes"],
+      typeSpeed: 70,
+      backSpeed: 40,
+      loop: true
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+</body>
+</html>
