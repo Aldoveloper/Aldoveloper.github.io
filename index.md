@@ -32,7 +32,7 @@ Página con menú del día, ubicación y pedidos directos por WhatsApp.
 
 ## 📲 Contáctame
 
-👉 [Envíame un mensaje por WhatsApp](https://wa.me/57300XXXXXXX?text=Hola%20Aldo,%20vi%20tu%20portafolio%20y%20quiero%20una%20página%20web)
+👉 [Envíame un mensaje por WhatsApp](https://wa.me/573232041158?text=Hola%20Aldo,%20vi%20tu%20portafolio%20y%20quiero%20una%20página%20web)
 
 ---
 
