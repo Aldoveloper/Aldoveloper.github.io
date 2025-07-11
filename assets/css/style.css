@@ -7,3 +7,14 @@
 .fade-in-up {
   animation: fadeInUp 1s ease-out forwards;
 }
+
+.skill-card {
+  @apply bg-white shadow-md rounded-xl p-4 flex flex-col items-center transition hover:shadow-xl hover:scale-105;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}

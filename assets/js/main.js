@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "Full Stack Developer",
       "IoT & Visión Artificial",
       "Integrador eCommerce",
-      "Ingeniero Mecatrónico en formación"
+      "Especialista en Soluciones de IA Generativa",
+      "Ingeniero Mecatrónico en formación",
     ],
     typeSpeed: 60,
     backSpeed: 40,
