@@ -18,3 +18,68 @@
   50%  { transform: translateY(-5px); }
   100% { transform: translateY(0); }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+.tech-pill {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+.tech-pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #67e8f9;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .project-card {
+    background-color: rgba(30, 41, 59, 0.85);
+    border: 2px solid;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .tags span.tech-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+  }
+
+  .tags span.tech-pill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #67e8f9;
+  }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
