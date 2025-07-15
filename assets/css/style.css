@@ -1,7 +1,14 @@
-/* Animaciones personalizadas (opcional) */
+/* Animaciones personalizadas */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+
+  }
 }
 
 .fade-in-up {
@@ -14,72 +21,211 @@
 }
 
 @keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
-.tech-pill {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  padding: 6px 12px;
-  font-size: 0.75rem;
-  border-radius: 9999px;
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
-}
-.tech-pill:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: #67e8f9;
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-
-  .font-orbitron {
-    font-family: 'Orbitron', sans-serif;
+  0% {
+    transform: translateY(0);
   }
-
-  .project-card {
-    background-color: rgba(30, 41, 59, 0.85);
-    border: 2px solid;
-    border-radius: 1rem;
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  }
-
-  .project-card:hover {
+  50% {
     transform: translateY(-5px);
   }
+  100% {
+    transform: translateY(0);
+  }
+}
 
-  .tags span.tech-pill {
-    background: rgba(255, 255, 255, 0.08);
+/* Importación de Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+/* Estilo para el scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Barra de Navegación --- */
+.nav-link {
+    color: #d1d5db; /* text-gray-300 */
+    background: transparent;
+    padding: 0.75rem 1rem; /* px-3 py-2 */
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 1rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    transition: color 0.3s, background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    background: #374151; /* bg-gray-700 */
+    color: #fff; /* hover:text-white */
+}
+
+/* --- Animaciones y Estilos Generales --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* --- Sección Proyectos --- */
+.font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.filter-btn.active {
+    background: #ec4899;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.4);
+}
+
+/* Flip Card */
+.flip-card {
+    background: transparent;
+    width: 100%;
+    height: 380px; /* Tamaño fijo */
+    perspective: 1000px;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    background: rgba(30, 41, 59, 0.9);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-front img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.flip-front h3 {
+    font-weight: 700;
+    color: #67e8f9;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    justify-content: space-around; /* Distribuye mejor el contenido */
+    padding: 25px;
+}
+
+.flip-back p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.tech-pill {
+    background: rgba(255, 255, 255, 0.08);
     padding: 6px 12px;
     font-size: 0.75rem;
     border-radius: 9999px;
-    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-  }
+    white-space: nowrap;
+}
 
-  .tags span.tech-pill:hover {
+.tech-pill:hover {
     background: rgba(255, 255, 255, 0.2);
     color: #67e8f9;
-  }
-
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
 }
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+.github-btn {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.github-btn:hover {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    color: #fff;
+    box-shadow: 0 0 10px #0ea5e9;
+}
+
+/* --- Sección Habilidades --- */
+/* .skill-card {
+    @apply bg-white shadow-md rounded-xl p-4 flex flex-col items-center justify-center transition hover:shadow-xl hover:scale-105;
+} */
+
+.soft-skill-card {
+    /* @apply bg-white shadow-lg rounded-xl p-6 flex flex-col items-center justify-center transition-all duration-300 ease-in-out;
+    @apply hover:shadow-xl hover:scale-105; */
+    min-height: 120px;
+}
+
+.soft-skill-card i {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+}
+
+.soft-skill-card p {
+    font-size: 1.1rem;
+    color: #333;
 }

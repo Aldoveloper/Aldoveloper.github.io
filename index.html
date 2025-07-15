@@ -1,126 +1,206 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aldo Florez | Portafolio</title>
 
-    <!-- Tailwind CSS CDN -->
+    <title>Aldo Florez | Desarrollador Full Stack, IoT y Visión Artificial</title>
+    <meta name="description"
+        content="Portafolio de Aldo Florez, Desarrollador Full Stack e Ingeniero Mecatrónico especializado en la creación de aplicaciones web, móviles, proyectos de IoT y soluciones con Visión Artificial." />
+    <meta name="keywords"
+        content="Aldo Florez, Desarrollador Full Stack, Ingeniero Mecatrónico, IoT, Visión Artificial, React, Node.js, FastAPI, React Native, Portafolio, Proyectos de tecnología" />
+    <meta name="author" content="Aldo Florez" />
+    <link rel="canonical" href="https://aldoveloper.github.io/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aldoveloper.github.io/" />
+    <meta property="og:title" content="Aldo Florez | Desarrollador Full Stack, IoT y Visión Artificial" />
+    <meta property="og:description"
+        content="Explora los proyectos innovadores de Aldo Florez en desarrollo web, IoT y IA." />
+    <meta property="og:image" content="assets/img/og-image.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://aldoveloper.github.io/" />
+    <meta property="twitter:title" content="Aldo Florez | Desarrollador Full Stack, IoT y Visión Artificial" />
+    <meta property="twitter:description"
+        content="Explora los proyectos innovadores de Aldo Florez en desarrollo web, IoT y IA." />
+    <meta property="twitter:image" content="assets/img/og-image.jpg" />
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- AOS Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <!-- Typed.js -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-    <!-- Iconos Tabler -->
     <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body class="bg-gray-100 text-gray-900">
 
-    <!-- HERO -->
-    <header class="min-h-screen bg-cover bg-center relative flex items-center justify-center text-white"
+    <nav class="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-white font-bold text-xl">Aldo Florez</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+                        <a href="#proyectos" class="nav-link">Proyectos</a>
+                        <a href="#habilidades" class="nav-link">Habilidades</a>
+                        <a href="#contacto" class="nav-link">Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="min-h-screen bg-cover bg-center relative flex items-center justify-center text-white"
         style="background-image: url('assets/img/fondo-hero.jpg');">
         <div class="absolute inset-0 bg-black bg-opacity-70"></div>
-        <div class="relative z-10 text-center px-6">
-            <h1 class="text-5xl font-bold mb-4">¡Hola! Soy <span class="text-indigo-400">Aldo Florez</span></h1>
-            <span id="typed-text" class="text-2xl h-8 block mb-6"></span>
+        <div class="relative z-10 text-center px-6 py-12 flex flex-col items-center justify-center">
+            <div class="mb-6" data-aos="fade-down">
+                <img src="assets/img/avatar.jpg" alt="Foto de perfil de Aldo Florez, Desarrollador Full Stack"
+                    class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-pink-500 shadow-lg object-cover" />
+            </div>
+
+            <h1 class="text-5xl font-bold mb-4" data-aos="fade-up">¡Hola! Soy <span class="text-indigo-400">Aldo
+                    Florez</span></h1>
+            <span id="typed-text" class="text-2xl h-8 block mb-6" data-aos="fade-up" data-aos-delay="150"></span>
+
             <a href="#proyectos"
-                class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition">Ver
-                proyectos destacados</a>
+                class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition mb-8"
+                data-aos="zoom-in" data-aos-delay="200">Ver mis proyectos</a>
+
+            <div class="flex flex-wrap justify-center space-x-6 text-3xl mb-8" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://www.linkedin.com/in/aldo-florez-dev" target="_blank"
+                    aria-label="Perfil de LinkedIn de Aldo Florez"
+                    class="text-gray-300 hover:text-blue-400 transition transform hover:scale-110">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:florezaldo10@gmail.com" aria-label="Enviar correo electrónico a Aldo Florez"
+                    class="text-gray-300 hover:text-red-400 transition transform hover:scale-110">
+                    <i class="ti ti-mail"></i>
+                </a>
+                <a href="https://wa.me/573232041158?text=Hola%20Aldo,%20me%20gustaría%20contactarte." target="_blank"
+                    aria-label="Contactar a Aldo Florez por WhatsApp"
+                    class="text-gray-300 hover:text-green-400 transition transform hover:scale-110">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- SOBRE MÍ -->
     <section class="py-16 px-6 bg-white text-center" id="sobre-mi">
-        <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Sobre mí</h2>
+        <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Sobre Mí</h2>
         <p class="max-w-3xl mx-auto text-lg" data-aos="fade-up" data-aos-delay="100">
-            Desarrollador Full Stack con experiencia en soluciones web, e-commerce e integración de dispositivos
-            inteligentes.
-            Combino software, hardware y visión artificial para construir herramientas que mejoran la vida de las
-            personas y la eficiencia de los negocios.
+            Soy un <span class="font-bold">Desarrollador Full Stack</span> con sólida experiencia en la creación de
+            aplicaciones web y móviles escalables, utilizando tecnologías como React, Vue.js, React Native, Node.js y
+            FastAPI.
+            Gracias a mi formación en <span class="font-bold">Ingeniería Mecatrónica</span>, combino habilidades de
+            software, hardware y diseño para liderar soluciones innovadoras, especialmente en integración de <span
+                class="font-bold">IoT</span> y <span class="font-bold">Visión Artificial</span>. Mi objetivo es
+            construir herramientas que impacten positivamente en la experiencia del usuario y la eficiencia de los
+            negocios.
         </p>
     </section>
 
-  <!-- PROYECTOS DESTACADOS -->
-  <section id="proyectos" class="py-20 px-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white">
-    <h2 class="text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-400">Proyectos Destacados</h2>
-    <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+    <section id="proyectos" class="py-20 px-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white font-orbitron">
+        <h2
+            class="text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-400">
+            Portafolio de Innovación: Proyectos Full Stack, IoT y Visión Artificial
+        </h2>
 
-      <!-- Proyecto 1 -->
-      <div class="project-card border-pink-500 hover:shadow-pink-500/50">
-        <img src="assets/img/proyecto1.png" alt="Vision Guard AI" class="rounded-xl mb-4" />
-        <h3 class="text-xl font-bold">VISION GUARD AI</h3>
-        <p class="text-sm text-gray-300 mt-2">Dispositivo ESP32-CAM con IA para personas con discapacidad visual. Describe el entorno en tiempo real.</p>
-        <div class="tags mt-4 flex flex-wrap gap-2 justify-center">
-          <span class="tech-pill">ESP32-CAM</span>
-          <span class="tech-pill">WebSocket</span>
-          <span class="tech-pill">FastAPI</span>
-          <span class="tech-pill">React Native</span>
-          <span class="tech-pill">Gemini LLM</span>
+        <div class="flex justify-center space-x-4 mb-10">
+            <button onclick="filterProjects('all', this)"
+                class="filter-btn bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full transition active">Todos</button>
+            <button onclick="filterProjects('iot', this)"
+                class="filter-btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition">IoT</button>
+            <button onclick="filterProjects('software', this)"
+                class="filter-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition">Software</button>
+            <button onclick="filterProjects('web', this)"
+                class="filter-btn bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-full transition">Web</button>
         </div>
-        <div class="mt-5 flex flex-col gap-2">
-          <a href="https://github.com/Aldoveloper/VisionGuard-AI" target="_blank" class="inline-flex items-center gap-2 text-sm text-pink-400 border border-pink-400 px-4 py-2 rounded-full hover:bg-pink-500 hover:text-white transition-all duration-300">
-            <i class="ti ti-brand-github"></i> Ver en GitHub
-          </a>
-         
+
+        <div id="projects-container" class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            <div class="flip-card category-iot category-software" data-aos="zoom-in">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="assets/img/proyecto1.png" alt="Proyecto Vision Guard AI" class="rounded-xl mb-4" />
+                        <h3 class="text-xl font-bold">VISION GUARD AI</h3>
+                    </div>
+                    <div class="flip-back">
+                        <p class="text-sm text-gray-300 mb-4">Dispositivo ESP32-CAM con IA para personas con
+                            discapacidad visual. Describe el entorno en tiempo real.</p>
+                        <div class="tags">
+                            <span class="tech-pill">ESP32-CAM</span>
+                            <span class="tech-pill">WebSocket</span>
+                            <span class="tech-pill">FastAPI</span>
+                            <span class="tech-pill">React Native</span>
+                            <span class="tech-pill">Gemini LLM</span>
+                        </div>
+                        <a href="https://github.com/Aldoveloper/VisionGuard-AI" target="_blank" class="github-btn">
+                            <i class="fab fa-github"></i> Ver en GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card category-iot" data-aos="zoom-in" data-aos-delay="100">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="assets/img/proyecto2.jpeg" alt="Proyecto Papelera Inteligente que clasifica residuos"
+                            class="rounded-xl mb-4" />
+                        <h3 class="text-xl font-bold">PAPELERA INTELIGENTE</h3>
+                    </div>
+                    <div class="flip-back">
+                        <p class="text-sm text-gray-300 mb-4">Sistema Arduino con sensores que clasifica residuos
+                            por color. Clasificación automática en tiempo real.</p>
+                        <div class="tags">
+                            <span class="tech-pill">Arduino</span>
+                            <span class="tech-pill">TCS3200</span>
+                            <span class="tech-pill">Ultrasónico</span>
+                            <span class="tech-pill">Servos</span>
+                            <span class="tech-pill">C++</span>
+                        </div>
+                        <a href="https://github.com/Aldoveloper/Papelera-Inteligente" target="_blank"
+                            class="github-btn">
+                            <i class="fab fa-github"></i> Ver en GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card category-web" data-aos="zoom-in" data-aos-delay="200">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="assets/img/proyecto1.jpg" alt="Proyecto de e-commerce Moda Nativa"
+                            class="rounded-xl mb-4" />
+                        <h3 class="text-xl font-bold">MODA NATIVA</h3>
+                    </div>
+                    <div class="flip-back">
+                        <p class="text-sm text-gray-300 mb-4">Tienda virtual con WhatsApp para ventas. Responsive,
+                            ligera y enfocada en moda artesanal.</p>
+                        <div class="tags">
+                            <span class="tech-pill">HTML</span>
+                            <span class="tech-pill">Tailwind CSS</span>
+                            <span class="tech-pill">JavaScript</span>
+                            <span class="tech-pill">WhatsApp API</span>
+                        </div>
+                        <a href="https://github.com/Aldoveloper/Moda-Nativa" target="_blank" class="github-btn">
+                            <i class="fab fa-github"></i> Ver en GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Proyecto 2 -->
-      <div class="project-card border-green-500 hover:shadow-green-500/50">
-        <img src="assets/img/proyecto2.jpeg" alt="Papelera Inteligente" class="rounded-xl mb-4" />
-        <h3 class="text-xl font-bold">PAPELERA INTELIGENTE</h3>
-        <p class="text-sm text-gray-300 mt-2">Sistema Arduino con sensores que clasifica residuos por color. Clasificación automática en tiempo real.</p>
-        <div class="tags mt-4 flex flex-wrap gap-2 justify-center">
-          <span class="tech-pill">Arduino</span>
-          <span class="tech-pill">TCS3200</span>
-          <span class="tech-pill">Ultrasónico</span>
-          <span class="tech-pill">Servos</span>
-          <span class="tech-pill">C++</span>
-        </div>
-        <div class="mt-5 flex flex-col gap-2">
-          <a href="https://github.com/Aldoveloper/Papelera-Inteligente" target="_blank" class="inline-flex items-center gap-2 text-sm text-green-400 border border-green-400 px-4 py-2 rounded-full hover:bg-green-500 hover:text-white transition-all duration-300">
-            <i class="ti ti-brand-github"></i> Ver en GitHub
-          </a>
-         
-        </div>
-      </div>
-
-      <!-- Proyecto 3 -->
-      <div class="project-card border-cyan-500 hover:shadow-cyan-500/50">
-        <img src="assets/img/proyecto1.jpg" alt="Moda Nativa" class="rounded-xl mb-4" />
-        <h3 class="text-xl font-bold">MODA NATIVA</h3>
-        <p class="text-sm text-gray-300 mt-2">Tienda virtual con WhatsApp para ventas. Responsive, ligera y enfocada en moda artesanal.</p>
-        <div class="tags mt-4 flex flex-wrap gap-2 justify-center">
-          <span class="tech-pill">HTML</span>
-          <span class="tech-pill">Tailwind CSS</span>
-          <span class="tech-pill">JavaScript</span>
-          <span class="tech-pill">WhatsApp API</span>
-        </div>
-        <div class="mt-5 flex flex-col gap-2">
-          <a href="https://github.com/Aldoveloper/Moda-Nativa" target="_blank" class="inline-flex items-center gap-2 text-sm text-cyan-400 border border-cyan-400 px-4 py-2 rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300">
-            <i class="ti ti-brand-github"></i> Ver en GitHub
-          </a>
-        
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-
-    <!-- HABILIDADES -->
     <section class="py-16 px-6 bg-white text-center" id="habilidades">
-        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">Habilidades Técnicas</h2>
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">Mi Stack Tecnológico</h2>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
 
-            <!-- FRONTEND -->
             <div class="skill-card" data-aos="zoom-in">
                 <img src="assets/img/icons/html5.svg" alt="HTML" class="h-10 mx-auto mb-2">
                 <p>HTML</p>
@@ -146,7 +226,6 @@
                 <p>Next.js</p>
             </div>
 
-            <!-- BACKEND -->
             <div class="skill-card" data-aos="zoom-in">
                 <img src="assets/img/icons/nodedotjs.svg" alt="Node.js" class="h-10 mx-auto mb-2">
                 <p>Node.js</p>
@@ -164,7 +243,6 @@
                 <p>PostgreSQL</p>
             </div>
 
-            <!-- OTRAS Y IOT -->
             <div class="skill-card" data-aos="zoom-in">
                 <img src="assets/img/icons/arduino.svg" alt="Arduino" class="h-10 mx-auto mb-2">
                 <p>Arduino</p>
@@ -199,46 +277,70 @@
             </div>
         </div>
     </section>
-      <!-- HABILIDADES BLANDAS -->
-  <section class="py-12 px-6 bg-gray-100 text-center">
-    <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Habilidades Blandas</h2>
-    <ul class="max-w-3xl mx-auto text-left list-disc list-inside text-gray-700 text-lg" data-aos="fade-up" data-aos-delay="100">
-      <li>Comunicación asertiva</li>
-      <li>Trabajo en equipo</li>
-      <li>Resolución de problemas</li>
-      <li>Autogestión y proactividad</li>
-      <li>Adaptabilidad al cambio</li>
-      <li>Orientación al detalle</li>
-    </ul>
-  </section>
+    <section class="py-16 px-6 bg-gray-100 text-center" id="habilidades-blandas">
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">Mis Habilidades Clave para el Éxito</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
+            <div class="soft-skill-card" data-aos="zoom-in">
+                <i class="ti ti-message-2 ti-lg text-indigo-500 mb-2"></i>
+                <p class="font-semibold">Comunicación Asertiva</p>
+            </div>
+
+            <div class="soft-skill-card" data-aos="zoom-in" data-aos-delay="50">
+                <i class="ti ti-users ti-lg text-pink-500 mb-2"></i>
+                <p class="font-semibold">Trabajo en Equipo</p>
+            </div>
+
+            <div class="soft-skill-card" data-aos="zoom-in" data-aos-delay="100">
+                <i class="ti ti-bulb ti-lg text-green-500 mb-2"></i>
+                <p class="font-semibold">Resolución de Problemas</p>
+            </div>
+
+            <div class="soft-skill-card" data-aos="zoom-in" data-aos-delay="150">
+                <i class="ti ti-rocket ti-lg text-orange-500 mb-2"></i>
+                <p class="font-semibold">Autogestión y Proactividad</p>
+            </div>
+
+            <div class="soft-skill-card" data-aos="zoom-in" data-aos-delay="200">
+                <i class="ti ti-exchange ti-lg text-cyan-500 mb-2"></i>
+                <p class="font-semibold">Adaptabilidad al Cambio</p>
+            </div>
+
+            <div class="soft-skill-card" data-aos="zoom-in" data-aos-delay="250">
+                <i class="ti ti-focus-centered ti-lg text-purple-500 mb-2"></i>
+                <p class="font-semibold">Orientación al Detalle</p>
+            </div>
+
+        </div>
+    </section>
 
 
-    <!-- CONTACTO -->
-    <section class="py-16 px-6 bg-gray-50 text-center" id="contacto">
-        <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">¿Quieres trabajar conmigo?</h2>
-        <p class="mb-6 text-gray-600" data-aos="fade-up" data-aos-delay="100">Estoy disponible para proyectos freelance,
-            colaboraciones o contrataciones.</p>
-        <a href="https://wa.me/573232041158?text=Hola%20Aldo,%20quiero%20trabajar%20contigo" target="_blank"
-            class="inline-block px-6 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+    <section class="py-16 px-6 bg-white text-center" id="contacto">
+        <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">¡Colaboremos!</h2>
+        <p class="mb-6 text-gray-600" data-aos="fade-up" data-aos-delay="100">Estoy abierto a propuestas freelance,
+            colaboraciones y oportunidades laborales.
+        </p>
+        <a href="https://wa.me/573232041158?text=Hola%20Aldo,%20vi%20tu%20portafolio%20y%20quiero%20trabajar%20contigo"
+            target="_blank"
+            class="inline-block px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition shadow-lg"
             data-aos="zoom-in">
-            Escríbeme por WhatsApp
+            <i class="fab fa-whatsapp mr-2"></i> Escríbeme por WhatsApp
         </a>
     </section>
 
-    <!-- FOOTER + BOTÓN DESCARGAR CV -->
-    <footer class="bg-white text-center py-6 border-t border-gray-200">
-        <p class="text-sm text-gray-500">© 2025 Aldo Florez — Hecho en Colombia</p>
+    <footer class="bg-gray-900 text-white text-center py-6">
+        <p class="text-sm text-gray-400">© 2025 Aldo Florez — Hecho con <span class="text-red-500">&hearts;</span> en
+            Colombia</p>
         <a href="CV-Aldo-Florez.pdf" download
-            class="mt-4 inline-flex items-center gap-2 text-sm text-indigo-600 hover:underline">
+            class="mt-4 inline-flex items-center gap-2 text-sm text-indigo-400 hover:underline">
             <i class="ti ti-download"></i> Descargar mi CV
         </a>
     </footer>
 
-    <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
-
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
