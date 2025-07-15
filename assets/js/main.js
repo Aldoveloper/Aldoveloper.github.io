@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 1. Inicialización de AOS (Animate On Scroll)
     AOS.init({
         duration: 800, // Duración de la animación
-        once: true, // La animación ocurre solo una vez
+        once: false, //nimación ocurre solo una vez
     });
 
     // 2. Configuración de Typed.js para el texto dinámico
