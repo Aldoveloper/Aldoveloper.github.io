@@ -49,3 +49,120 @@ function filterProjects(category, button) {
         }, 300); // Tiempo de espera para la animación de salida
     });
 }
+
+// Chat falso flotante con avatar y respuestas predefinidas
+
+const respuestasPredefinidas = [
+    {
+        pregunta: /hola|buenas/i,
+        respuesta: "¡Hola! Soy AldoBot, el asistente virtual de Aldo Florez. Estoy aquí para contarte sobre su perfil, experiencia o resolver tus dudas. ¿Cómo puedo ayudarte?"
+    },
+    {
+        pregunta: /quién eres|quien eres|quién es aldo|quien es aldo/i,
+        respuesta: "Soy un avatar virtual basado en Aldo Florez, profesional en formación en Ingeniería Mecatrónica y Desarrollador Full Stack con experiencia en software, hardware e integración de sistemas."
+    },
+    {
+        pregunta: /experiencia|trabajo|trayectoria/i,
+        respuesta: "Aldo cuenta con experiencia en desarrollo de aplicaciones web y móviles, integración de sistemas e-commerce, automatización de procesos y soporte operativo en logística y producción."
+    },
+    {
+        pregunta: /tecnolog[ií]as|stack|herramientas|con qué trabajas/i,
+        respuesta: "Aldo trabaja con tecnologías como React, Vue.js, Node.js, FastAPI, React Native, Arduino, ESP32-CAM, WebSockets, Shopify, WooCommerce, PostgreSQL y MongoDB. También domina herramientas de automatización y visión artificial."
+    },
+    {
+        pregunta: /proyectos|logros|portafolio/i,
+        respuesta: "Ha liderado proyectos como dashboards IoT en tiempo real, asistentes inteligentes con visión artificial y ESP32-CAM, tiendas virtuales personalizables y arquitecturas basadas en microservicios. Puedes ver su portafolio en: https://aldoveloper.github.io/"
+    },
+    {
+        pregunta: /edad|años|cuántos años tienes|tienes/i,
+        respuesta: "Aldo tiene 28 años y combina su experiencia técnica con una actitud proactiva y un enfoque constante en el aprendizaje y la innovación."
+    },
+    {
+        pregunta: /de dónde eres|donde vives|nacionalidad|pa[ií]s/i,
+        respuesta: "Aldo es colombiano y actualmente reside en Colombia, donde combina su experiencia en tecnología con participación en proyectos de alcance internacional."
+    },
+    {
+        pregunta: /idioma|hablas ingl[eé]s|nivel de ingl[eé]s|inglés/i,
+        respuesta: "Aldo tiene un nivel A2 de inglés conversacional y un nivel intermedio en lectura y comprensión de documentación técnica, lo que le permite trabajar con herramientas y documentación internacional."
+    },
+    {
+        pregunta: /contacto|correo|email/i,
+        respuesta: "Puedes contactar a Aldo directamente al correo florezaldo10@gmail.com o a través de LinkedIn: https://www.linkedin.com/in/aldo-florez-dev/"
+    },
+    {
+        pregunta: /.*/i,
+        respuesta: "¡Gracias por tu consulta! Actualmente puedo responder sobre la experiencia, habilidades y proyectos de Aldo. Pronto integraré más respuestas gracias a la IA."
+    }
+];
+
+
+function obtenerRespuesta(preguntaUsuario) {
+    for (const item of respuestasPredefinidas) {
+        if (item.pregunta.test(preguntaUsuario)) {
+            return item.respuesta;
+        }
+    }
+    return respuestasPredefinidas[respuestasPredefinidas.length - 1].respuesta;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // ...tu código existente...
+
+    // Chat flotante
+    const openBtn = document.getElementById('open-chat-btn');
+    const chatWindow = document.getElementById('chat-window');
+    const closeBtn = document.getElementById('close-chat-btn');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+  if (openBtn && chatWindow) {
+    openBtn.addEventListener('click', () => {
+        openBtn.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        setTimeout(() => {
+            openBtn.style.display = 'none';
+            chatWindow.classList.remove('hidden');
+            chatWindow.classList.remove('opacity-0', 'scale-95');
+            chatWindow.classList.add('opacity-100', 'scale-100');
+            chatInput.focus();
+        }, 300);
+    });
+}
+if (closeBtn && chatWindow && openBtn) {
+    closeBtn.addEventListener('click', () => {
+        chatWindow.classList.remove('opacity-100', 'scale-100');
+        chatWindow.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+            chatWindow.classList.add('hidden');
+            openBtn.style.display = '';
+            openBtn.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+        }, 300);
+    });
+}
+    if (closeBtn && chatWindow && openBtn) {
+        closeBtn.addEventListener('click', () => {
+            chatWindow.classList.add('hidden');
+            openBtn.style.display = ''; // Muestra el botón al cerrar el chat
+        });
+    }
+    if (chatForm && chatInput && chatMessages) {
+        chatForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const pregunta = chatInput.value.trim();
+            if (!pregunta) return;
+
+            // Mostrar pregunta del usuario
+            chatMessages.innerHTML += `<div class="mb-2 text-right"><span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-lg">${pregunta}</span></div>`;
+
+            // Obtener y mostrar respuesta
+            const respuesta = obtenerRespuesta(pregunta);
+            setTimeout(() => {
+                chatMessages.innerHTML += `<div class="mb-2 text-left"><span class="inline-block bg-gray-200 text-gray-800 px-3 py-1 rounded-lg">${respuesta}</span></div>`;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+
+            chatInput.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+    }
+});

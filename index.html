@@ -21,7 +21,7 @@
     <meta property="og:title" content="Aldo Florez | Desarrollador Full Stack, IoT y Visión Artificial" />
     <meta property="og:description"
         content="Explora los proyectos innovadores de Aldo Florez en desarrollo web, IoT y IA." />
-            <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:image" content="https://aldoveloper.github.io/assets/img/og-image.png" />
     <meta property="twitter:url" content="https://aldoveloper.github.io/" />
     <meta property="twitter:title" content="Aldo Florez | Desarrollador Full Stack, IoT y Visión Artificial" />
@@ -35,7 +35,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
+<!-- Chat Avatar Flotante -->
+<div id="chat-avatar" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <!-- Botón flotante con tu foto y texto -->
+   <button id="open-chat-btn" class="relative flex flex-col items-center gap-0 shadow-2xl rounded-full px-3 py-2 hover:scale-105 hover:shadow-pink-300 transition-all duration-300 animate-bounce backdrop-blur-md bg-transparent border-0">
+    <!-- Ping animado -->
+    <span class="absolute -top-1 -right-1 flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+    </span>
+    <img src="assets/img/avatar.jpg" alt="AldoBot" class="w-8 h-8 rounded-full border-2 border-pink-500 object-cover shadow" />
+    <span class="font-bold text-pink-600 drop-shadow text-sm">Pregúntame</span>
+</button>
+<div id="chat-window" class="w-80 max-w-full rounded-xl shadow-xl border border-gray-200 mt-3 hidden flex-col bg-white/90 backdrop-blur-md transition-all duration-300 opacity-0 scale-95">
+    <div class="p-4 border-b flex items-center gap-2 bg-gray-900 text-white rounded-t-xl">
+        <img src="assets/img/avatar.jpg" alt="AldoBot" class="w-8 h-8 rounded-full border-2 border-pink-300 object-cover" />
+        <span class="font-bold tracking-wide">AldoBot</span>
+        <button id="close-chat-btn" class="ml-auto text-white hover:text-pink-400 text-xl leading-none">&times;</button>
+    </div>
+    <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm bg-white text-gray-700"></div>
+    <form id="chat-form" class="flex border-t border-gray-100 bg-white">
+        <input id="chat-input" type="text" class="flex-1 p-2 border-0 focus:outline-none rounded-bl-xl bg-transparent text-gray-700 placeholder:text-gray-400" placeholder="Hazme una pregunta..." autocomplete="off" />
+        <button type="submit" class="bg-gray-900 hover:bg-gray-800 text-white px-4 rounded-br-xl transition flex items-center justify-center">
+            <i class="ti ti-send"></i>
+        </button>
+    </form>
+</div>
+</div>
 <body class="bg-gray-100 text-gray-900">
 
     <nav class="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm shadow-md z-50">
@@ -69,14 +95,14 @@
                     Florez</span></h1>
             <span id="typed-text" class="text-2xl h-8 block mb-6" data-aos="fade-up" data-aos-delay="150"></span>
 
-           <a href="#proyectos"
-    class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full shadow-lg transition transform hover:scale-105 hover:-translate-y-1"
-    data-aos="zoom-in" data-aos-delay="200">
- Explora mi trabajo
-</a>
+            <a href="#proyectos"
+                class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full shadow-lg transition transform hover:scale-105 hover:-translate-y-1"
+                data-aos="zoom-in" data-aos-delay="200">
+                Explora mi trabajo
+            </a>
 
 
-         
+
         </div>
     </header>
 
@@ -308,26 +334,31 @@
 
 
     <section id="contacto" class="py-16 px-6 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white text-center">
-    <h2 class="text-3xl font-bold mb-4">¿Quieres contactarme?</h2>
-    <p class="mb-6 text-gray-300">Estoy disponible para colaborar en proyectos de desarrollo, IoT o innovación tecnológica.</p>
+        <h2 class="text-3xl font-bold mb-4">¿Quieres contactarme?</h2>
+        <p class="mb-6 text-gray-300">Estoy disponible para colaborar en proyectos de desarrollo, IoT o innovación
+            tecnológica.</p>
 
-    <div class="flex justify-center space-x-6 text-3xl mb-8">
-        <a href="https://www.linkedin.com/in/aldo-florez-dev" target="_blank" aria-label="LinkedIn" class="hover:text-blue-400 transition transform hover:scale-110">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:florezaldo10@gmail.com" aria-label="Email" class="hover:text-red-400 transition transform hover:scale-110">
-            <i class="ti ti-mail"></i>
-        </a>
-        <a href="https://wa.me/573232041158?text=Hola%20Aldo,%20quiero%20trabajar%20contigo" target="_blank" aria-label="WhatsApp" class="hover:text-green-400 transition transform hover:scale-110">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://github.com/Aldoveloper" target="_blank" aria-label="GitHub" class="hover:text-gray-400 transition transform hover:scale-110">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
+        <div class="flex justify-center space-x-6 text-3xl mb-8">
+            <a href="https://www.linkedin.com/in/aldo-florez-dev" target="_blank" aria-label="LinkedIn"
+                class="hover:text-blue-400 transition transform hover:scale-110">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:florezaldo10@gmail.com" aria-label="Email"
+                class="hover:text-red-400 transition transform hover:scale-110">
+                <i class="ti ti-mail"></i>
+            </a>
+            <a href="https://wa.me/573232041158?text=Hola%20Aldo,%20quiero%20trabajar%20contigo" target="_blank"
+                aria-label="WhatsApp" class="hover:text-green-400 transition transform hover:scale-110">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://github.com/Aldoveloper" target="_blank" aria-label="GitHub"
+                class="hover:text-gray-400 transition transform hover:scale-110">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
 
-   
-</section>
+
+    </section>
 
 
     <footer class="bg-gray-900 text-white text-center py-6">
