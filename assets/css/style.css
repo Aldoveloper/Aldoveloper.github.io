@@ -99,14 +99,29 @@ html {
 }
 
 /* Flip Card */
+/* --- Sección Proyectos --- */
+
+/* ... (tu código CSS existente) ... */
+
+/* Flip Card */
 .flip-card {
     background: transparent;
     width: 100%;
-    height: 380px; /* Tamaño fijo */
+    /* Altura que se ajusta más fluidamente o al menos es responsiva */
+    height: 380px; /* Mantener una altura fija razonable o considerar 'auto' con min-height */
     perspective: 1000px;
     opacity: 1;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
+/* Considerar un min-height en pantallas más pequeñas si el contenido varía mucho */
+@media (max-width: 767px) { /* Para móviles y tablets pequeñas */
+    .flip-card {
+        height: auto; /* Permite que la altura se ajuste al contenido */
+        min-height: 380px; /* Asegura un mínimo para evitar que sea demasiado pequeña */
+    }
+}
+
 
 .flip-inner {
     position: relative;
@@ -128,19 +143,19 @@ html {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 1rem;
-    overflow: hidden;
+    overflow: hidden; /* Asegura que el contenido no se salga */
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
     background: rgba(30, 41, 59, 0.9);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Centra verticalmente el contenido */
     align-items: center;
 }
 
 .flip-front img {
     width: 100%;
-    max-height: 200px;
+    max-height: 200px; /* Asegura que la imagen no sea demasiado alta */
     object-fit: cover;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
@@ -149,39 +164,49 @@ html {
 .flip-front h3 {
     font-weight: 700;
     color: #67e8f9;
+    font-size: 1.25rem; /* Ajusta el tamaño de la fuente para que quepa bien */
+    line-height: 1.2; /* Reduce el espacio entre líneas */
+    word-break: break-word; /* Permite que las palabras largas se rompan */
 }
 
 .flip-back {
     transform: rotateY(180deg);
     justify-content: space-around; /* Distribuye mejor el contenido */
     padding: 25px;
+    text-align: left; /* Alinea el texto a la izquierda para mejor lectura */
 }
 
 .flip-back p {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Reduce ligeramente el tamaño del texto para más espacio */
     color: #cbd5e1;
     flex-grow: 1;
     display: flex;
     align-items: center;
+    line-height: 1.4; /* Mejora la legibilidad */
+    overflow-y: auto; /* Permite el scroll si el texto es muy largo */
+    max-height: 60%; /* Limita la altura del párrafo para dejar espacio a los tags y botones */
+    margin-bottom: 0.5rem; /* Reduce el margen inferior */
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px; /* Reduce el espacio entre las tags */
     justify-content: center;
-    margin: 1rem 0;
+    margin: 0.5rem 0; /* Reduce el margen */
 }
 
 .tech-pill {
     background: rgba(255, 255, 255, 0.08);
-    padding: 6px 12px;
-    font-size: 0.75rem;
+    padding: 4px 10px; /* Reduce el padding de las tags */
+    font-size: 0.7rem; /* Reduce el tamaño de la fuente de las tags */
     border-radius: 9999px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
     white-space: nowrap;
 }
+
+
 
 .tech-pill:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -189,10 +214,12 @@ html {
 }
 
 .github-btn {
+    margin-top: 0.5rem; /* Añade un pequeño margen superior */
+    padding: 6px 16px; /* Ajusta el padding del botón */
+    font-size: 0.85rem;
     color: #fff;
     border: 1px solid #fff;
-    padding: 8px 20px;
-    border-radius: 9999px;
+   border-radius: 9999px;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-flex;
