@@ -19,6 +19,112 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// assets/js/main.js (solo la parte relevante del chatbot)
+
+// ... (tu código AOS y Typed.js arriba) ...
+
+// 3. Funcionalidad del Chatbot
+const openChatBtn = document.getElementById('open-chat-btn');
+const chatWindow = document.getElementById('chat-window');
+const closeChatBtn = document.getElementById('close-chat-btn');
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+
+// Nuevos elementos para las preguntas preestablecidas
+const presetQuestionsContainer = document.getElementById('preset-questions-container'); // Necesitaremos agregar esto en el HTML
+
+// Lógica de apertura/cierre del chat (sin cambios significativos aquí)
+if (openChatBtn && chatWindow) {
+    openChatBtn.addEventListener('click', () => {
+        openChatBtn.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        setTimeout(() => {
+            openChatBtn.style.display = 'none';
+            chatWindow.classList.remove('hidden', 'opacity-0', 'scale-95');
+            chatWindow.classList.add('opacity-100', 'scale-100', 'flex');
+            chatInput.focus();
+        }, 300);
+    });
+}
+
+if (closeChatBtn && chatWindow && openChatBtn) {
+    closeChatBtn.addEventListener('click', () => {
+        chatWindow.classList.remove('opacity-100', 'scale-100');
+        chatWindow.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+            chatWindow.classList.add('hidden');
+            chatWindow.classList.remove('flex');
+            openChatBtn.style.display = '';
+            openChatBtn.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+        }, 300);
+    });
+}
+
+// **Lógica Principal de Envío de Mensajes al API**
+if (chatForm && chatInput && chatMessages) {
+    chatForm.addEventListener('submit', async function (e) { // Agrega 'async' aquí
+        e.preventDefault();
+        const pregunta = chatInput.value.trim();
+        if (!pregunta) return;
+
+        // 1. Mostrar pregunta del usuario
+        chatMessages.innerHTML += `<div class="mb-2 text-right"><span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-lg max-w-[80%]">${pregunta}</span></div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll al final
+
+        chatInput.value = ''; // Limpiar input inmediatamente
+        chatInput.disabled = true; // Deshabilitar input mientras se espera respuesta
+
+        // 2. Mostrar un mensaje de "escribiendo..." o cargando
+        const typingIndicator = document.createElement('div');
+        typingIndicator.classList.add('mb-2', 'text-left');
+        typingIndicator.innerHTML = '<span class="inline-block bg-gray-200 text-gray-800 px-3 py-1 rounded-lg animate-pulse">Escribiendo...</span>';
+        chatMessages.appendChild(typingIndicator);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+
+        try {
+            // 3. Realizar la llamada a la API
+            const response = await fetch('https://2v26fhnk-3000.use2.devtunnels.ms/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: pregunta }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const respuestaBot = data.reply || "Lo siento, no pude obtener una respuesta."; // Asegura que haya una respuesta
+
+            // 4. Eliminar el indicador de "escribiendo..." y mostrar la respuesta
+            chatMessages.removeChild(typingIndicator);
+            chatMessages.innerHTML += `<div class="mb-2 text-left"><span class="inline-block bg-gray-200 text-gray-800 px-3 py-1 rounded-lg max-w-[80%]">${respuestaBot}</span></div>`;
+
+        } catch (error) {
+            console.error('Error al comunicarse con el chatbot:', error);
+            if (typingIndicator.parentNode) { // Solo si el indicador sigue en el DOM
+                chatMessages.removeChild(typingIndicator);
+            }
+            chatMessages.innerHTML += `<div class="mb-2 text-left text-red-600"><span class="inline-block bg-red-100 px-3 py-1 rounded-lg max-w-[80%]">Hubo un error al conectar con el asistente. Intenta más tarde.</span></div>`;
+        } finally {
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Asegurar scroll final
+            chatInput.disabled = false; // Habilitar input de nuevo
+            chatInput.focus(); // Enfocar de nuevo el input
+        }
+    });
+}
+
+// **Función para enviar preguntas preestablecidas**
+function sendPresetQuestion(question) {
+    chatInput.value = question; // Pone la pregunta en el input
+    chatForm.dispatchEvent(new Event('submit')); // Dispara el evento submit del formulario
+}
+
+// ... (tu código filterProjects debajo) ...
+
 // 3. Lógica para filtrar los proyectos
 function filterProjects(category, button) {
     // Manejo de la clase 'active' para los botones de filtro
@@ -32,7 +138,7 @@ function filterProjects(category, button) {
         // Oculta el proyecto primero con una transición
         project.style.opacity = '0';
         project.style.transform = 'scale(0.9)';
-        
+
         // Muestra el proyecto si coincide con la categoría o si es 'all'
         setTimeout(() => {
             const hasCategory = project.classList.contains(`category-${category}`);
@@ -116,29 +222,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatInput = document.getElementById('chat-input');
     const chatMessages = document.getElementById('chat-messages');
 
-  if (openBtn && chatWindow) {
-    openBtn.addEventListener('click', () => {
-        openBtn.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-        setTimeout(() => {
-            openBtn.style.display = 'none';
-            chatWindow.classList.remove('hidden');
-            chatWindow.classList.remove('opacity-0', 'scale-95');
-            chatWindow.classList.add('opacity-100', 'scale-100');
-            chatInput.focus();
-        }, 300);
-    });
-}
-if (closeBtn && chatWindow && openBtn) {
-    closeBtn.addEventListener('click', () => {
-        chatWindow.classList.remove('opacity-100', 'scale-100');
-        chatWindow.classList.add('opacity-0', 'scale-95');
-        setTimeout(() => {
-            chatWindow.classList.add('hidden');
-            openBtn.style.display = '';
-            openBtn.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-        }, 300);
-    });
-}
+    if (openBtn && chatWindow) {
+        openBtn.addEventListener('click', () => {
+            openBtn.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+            setTimeout(() => {
+                openBtn.style.display = 'none';
+                chatWindow.classList.remove('hidden');
+                chatWindow.classList.remove('opacity-0', 'scale-95');
+                chatWindow.classList.add('opacity-100', 'scale-100');
+                chatInput.focus();
+            }, 300);
+        });
+    }
+    if (closeBtn && chatWindow && openBtn) {
+        closeBtn.addEventListener('click', () => {
+            chatWindow.classList.remove('opacity-100', 'scale-100');
+            chatWindow.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                chatWindow.classList.add('hidden');
+                openBtn.style.display = '';
+                openBtn.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+            }, 300);
+        });
+    }
     if (closeBtn && chatWindow && openBtn) {
         closeBtn.addEventListener('click', () => {
             chatWindow.classList.add('hidden');

@@ -70,6 +70,21 @@
                 class="ml-auto text-white hover:text-pink-400 text-xl leading-none">&times;</button>
         </div>
         <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm bg-white text-gray-700"></div>
+        <div id="preset-questions-container" class="p-3 border-b border-gray-100 bg-white grid grid-cols-2 gap-2">
+            <button onclick="sendPresetQuestion('¿Quién es Aldo?')"
+                class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full hover:bg-gray-200 transition-colors cursor-pointer text-left">
+                ¿Quién es Aldo?
+            </button>
+            <button onclick="sendPresetQuestion('Háblame de su experiencia.')"
+                class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full hover:bg-gray-200 transition-colors cursor-pointer text-left">
+                Háblame de su experiencia.
+            </button>
+            <button onclick="sendPresetQuestion('¿Qué tecnologías usa?')"
+                class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full hover:bg-gray-200 transition-colors cursor-pointer text-left">
+                ¿Qué tecnologías usa?
+            </button>
+        </div>
+        <!-- <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm bg-white text-gray-700"></div> -->
         <form id="chat-form" class="flex border-t border-gray-100 bg-white">
             <input id="chat-input" type="text"
                 class="flex-1 p-2 border-0 focus:outline-none rounded-bl-xl bg-transparent text-gray-700 placeholder:text-gray-400"
@@ -203,7 +218,6 @@
                             <span class="tech-pill">C++</span>
                         </div>
 
-
                         <a href="https://papelera-inteligente-kpf6zx2.gamma.site/" target="_blank" class="github-btn">
                             <i class="ti ti-world"></i>
                         </a>
@@ -234,7 +248,9 @@
                             <span class="tech-pill">WebSocket</span>
                             <span class="tech-pill">Contex Api</span>
                         </div>
-                        <a href="https://github.com/Aldoveloper/VisionGuardAI_App.git" target="_blank" class="github-btn">
+
+                        <a href="https://github.com/Aldoveloper/VisionGuardAI_App.git" target="_blank"
+                            class="github-btn">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -389,6 +405,23 @@
                 <i class="fab fa-github"></i>
             </a>
         </div>
+        <!-- <div class="mt-8">
+            <p class="mb-3 text-lg font-semibold text-white">¡Comparte mi perfil en tus redes sociales!</p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://wa.me/?text=¡Mira%20el%20perfil%20de%20Aldo%20Florez!%20https://aldoveloper.github.io/"
+                    target="_blank" title="Compartir en WhatsApp"
+                    class="text-green-400 hover:text-green-500 text-2xl transition"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://aldoveloper.github.io/" target="_blank"
+                    title="Compartir en Facebook" class="text-blue-400 hover:text-blue-500 text-2xl transition"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://aldoveloper.github.io/&text=¡Mira%20el%20perfil%20de%20Aldo%20Florez!"
+                    target="_blank" title="Compartir en X"
+                    class="text-blue-300 hover:text-blue-400 text-2xl transition"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://aldoveloper.github.io/"
+                    target="_blank" title="Compartir en LinkedIn"
+                    class="text-blue-500 hover:text-blue-600 text-2xl transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div> -->
 
 
     </section>
