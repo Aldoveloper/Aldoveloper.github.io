@@ -118,9 +118,13 @@ if (chatForm && chatInput && chatMessages) {
 }
 
 // **Función para enviar preguntas preestablecidas**
-function sendPresetQuestion(question) {
+function sendPresetQuestion(question,buttonElement) {
     chatInput.value = question; // Pone la pregunta en el input
     chatForm.dispatchEvent(new Event('submit')); // Dispara el evento submit del formulario
+     if (buttonElement) {
+        buttonElement.style.display = 'none'; // Oculta solo el botón clickeado
+    }
+
 }
 
 // ... (tu código filterProjects debajo) ...
