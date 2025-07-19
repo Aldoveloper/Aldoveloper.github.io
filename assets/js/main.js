@@ -84,7 +84,7 @@ if (chatForm && chatInput && chatMessages) {
 
         try {
             // 3. Realizar la llamada a la API
-            const response = await fetch('https://2v26fhnk-3000.use2.devtunnels.ms/api/chat', {
+            const response = await fetch('https://ai-agent-backend-production-7919.up.railway.app/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
