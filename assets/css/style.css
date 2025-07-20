@@ -16,9 +16,12 @@
 }
 
 .skill-card {
-  @apply bg-white shadow-md rounded-xl p-4 flex flex-col items-center transition hover:shadow-xl hover:scale-105;
+  /* @apply bg-white shadow-md rounded-xl p-4 flex flex-col items-center transition hover:shadow-xl hover:scale-105; */
   animation: float 5s ease-in-out infinite;
+   perspective: 1000px; /* Necesario para transformaciones 3D */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
+
 
 @keyframes float {
   0% {
@@ -264,6 +267,11 @@ html {
     cursor: pointer;
     outline: none;
     position: relative;
+        transition: all 0.3s ease-in-out; 
+}
+#open-chat-btn:hover {
+    transform: scale(1.08) translateY(-3px); /* Un poco más de escala y un pequeño levantamiento */
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4); /* Sombra que "brilla" */
 }
 #open-chat-btn:active {
     transform: scale(0.97);
@@ -305,3 +313,39 @@ html {
     text-align: left;
     box-shadow: 0 1px 4px rgba(0,0,0,0.03);
 }
+#chat-avatar {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInRise 1s ease-out forwards;
+    animation-delay: 2s; /* Retrasa la aparición un poco para que el resto de la página cargue */
+}
+
+@keyframes fadeInRise {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Para el botón de "Explora mi trabajo" */
+.header-button { /* Asigna esta clase al <a> en tu HTML */
+    position: relative;
+    overflow: hidden; /* Oculta el brillo que sale */
+    z-index: 1; /* Asegura que el contenido esté por encima del brillo */
+}
+
+.header-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Empieza fuera del botón por la izquierda */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); /* Gradiente de luz */
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); /* Transición con una curva suave */
+    z-index: -1;
+}
+
+.header-button:hover::before {
+    left: 100%; /* Se mueve a la derecha */
+}
+
