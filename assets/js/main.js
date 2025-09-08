@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Cargar proyectos desde Supabase y renderizarlos
 async function loadProjects() {
     try {
-        const response = await fetch("hhttps://ai-agent-backend-production-7919.up.railway.app/api/chat"); 
+        const response = await fetch("hhttps://ai-agent-backend-production-7919.up.railway.app/api/proyectos"); 
         const data = await response.json();
 
         const projectsContainer = document.getElementById("projects-container");
