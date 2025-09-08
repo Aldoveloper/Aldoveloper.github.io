@@ -319,34 +319,35 @@ async function loadProjects() {
 
     if (!data.proyectos || data.proyectos.length === 0) {
       projectsContainer.innerHTML =
-        "<p class='text-gray-600'>No hay proyectos para mostrar.</p>";
+        "<p class='text-gray-300'>No hay proyectos para mostrar.</p>";
       return;
     }
 
     projectsContainer.innerHTML = ""; // Limpia contenido previo
 
-    data.proyectos.forEach((proyecto) => {
-      // Generar clases de categorías dinámicamente
+    data.proyectos.forEach((proyecto, index) => {
       const categoryClasses = proyecto.categoria
         .map((cat) => `category-${cat}`)
         .join(" ");
 
-      // Crear tarjeta
+      const delay = (index % 3) * 100; // animación tipo AOS escalonada
+
       const projectCard = `
-        <div class="flip-card ${categoryClasses} transition-all duration-300">
-          <div class="flip-card-inner">
-            <div class="flip-card-front bg-white rounded-xl shadow-lg overflow-hidden">
-              <img src="${proyecto.imagen_url}" alt="${proyecto.titulo}" class="w-full h-40 object-cover">
-              <div class="p-4">
-                <h3 class="text-xl font-bold mb-2 text-gray-900">${proyecto.titulo}</h3>
-                <p class="text-gray-700 text-sm">${proyecto.descripcion}</p>
-              </div>
+        <div class="flip-card ${categoryClasses}" data-aos="zoom-in" data-aos-delay="${delay}">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="${proyecto.imagen_url}" alt="${proyecto.titulo}" class="rounded-xl mb-4 w-full h-48 object-cover" />
+              <h3 class="text-xl font-bold text-white">${proyecto.titulo}</h3>
             </div>
-            <div class="flip-card-back bg-gray-900 text-white rounded-xl p-4 flex flex-col items-center justify-center">
-              <h3 class="text-lg font-bold mb-2">${proyecto.titulo}</h3>
-              <p class="text-sm mb-4">${proyecto.tecnologias.join(", ")}</p>
-              <a href="${proyecto.enlace}" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition">
-                Ver Proyecto
+            <div class="flip-back">
+              <p class="text-sm text-gray-300 mb-4">${proyecto.descripcion}</p>
+              <div class="tags">
+                ${proyecto.tecnologias
+                  .map((tech) => `<span class="tech-pill">${tech}</span>`)
+                  .join("")}
+              </div>
+              <a href="${proyecto.enlace}" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i>
               </a>
             </div>
           </div>
@@ -355,10 +356,14 @@ async function loadProjects() {
 
       projectsContainer.innerHTML += projectCard;
     });
+
+    // refresca AOS después de inyectar elementos
+    AOS.refresh();
   } catch (error) {
     console.error("Error cargando proyectos:", error);
   }
 }
+
 
 
 // Ejecutar al cargar la página
