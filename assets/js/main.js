@@ -276,3 +276,48 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+// Cargar proyectos desde Supabase y renderizarlos
+async function loadProjects() {
+    try {
+        const response = await fetch("hhttps://ai-agent-backend-production-7919.up.railway.app/api/chat"); 
+        const data = await response.json();
+
+        const projectsContainer = document.getElementById("projects-container");
+        projectsContainer.innerHTML = ""; // Limpia contenido previo
+
+        data.proyectos.forEach(proyecto => {
+            // Generar clases de categorías dinámicamente
+            const categoryClasses = proyecto.categoria.map(cat => `category-${cat}`).join(" ");
+
+            // Crear tarjeta
+            const projectCard = `
+                <div class="flip-card ${categoryClasses} transition-all duration-300">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white rounded-xl shadow-lg overflow-hidden">
+                            <img src="${proyecto.imagen_url}" alt="${proyecto.titulo}" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2 text-gray-900">${proyecto.titulo}</h3>
+                                <p class="text-gray-700 text-sm">${proyecto.descripcion}</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back bg-gray-900 text-white rounded-xl p-4 flex flex-col items-center justify-center">
+                            <h3 class="text-lg font-bold mb-2">${proyecto.titulo}</h3>
+                            <p class="text-sm mb-4">${proyecto.tecnologias.join(", ")}</p>
+                            <a href="${proyecto.enlace}" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition">
+                                Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            projectsContainer.innerHTML += projectCard;
+        });
+    } catch (error) {
+        console.error("Error cargando proyectos:", error);
+    }
+}
+
+// Ejecutar al cargar la página
+document.addEventListener("DOMContentLoaded", loadProjects);
